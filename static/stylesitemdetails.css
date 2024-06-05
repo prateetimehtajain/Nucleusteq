@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #c7eafd, #f0f0f0);
+}
+
+header {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    animation: colorChange 10s infinite;
+}
+@keyframes colorChange {
+    0% {
+        background-color: #1c3a63; /* Dark Blue */
+    }
+    25% {
+        background-color: #25476f; /* Slightly lighter shade */
+    }
+    50% {
+        background-color: #2d5282; /* Slightly lighter shade */
+    }
+    75% {
+        background-color: #355d96; /* Slightly lighter shade */
+    }
+    100% {
+        background-color: #1c3a63; /* Dark Blue */
+    }
+}
+
+header h2{
+    color: #ffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+.nav-links a:hover {
+    background-color: #ddd;
+}
+.content {
+    padding: 20px;
+    align-self: center;
+}
+table {
+    width: 100%;
+    background-color: #25476f; 
+    border-collapse: collapse;
+    margin-bottom: 0 auto;
+    color: white;
+    border: none;
+}
+th, td {
+    padding: 8px; 
+    text-align: left;
+    border: none; 
+    color: white; 
+}
+th {
+    background-color: #1c3a63; 
+}
+tr:nth-child(even) {
+    background-color: #355d96; 
+}
+.cancel-btn {
+    text-decoration: none;
+    color: white !important; /* Ensures text color is white */
+    background-color: #007BFF;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: inline-block;
+}
+.cancel-btn:hover {
+    background-color: #0056b3;
+}

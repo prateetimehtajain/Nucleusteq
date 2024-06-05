@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesdashboard.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Admin Dashboard</h1>
+            <nav class="nav-links">
+                <a href="{{ url_for('logout') }}">Signout</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main-container">
+        <nav class="sidebar">
+            <div>Hi, {{ name }}</div>
+            <ul>
+                <li>
+                    <a href="#manageInventory" class="collapsible">Manage Inventory</a>
+                    <div class="content">
+                        <a href="{{ url_for('add_item') }}">Add Item</a>
+                        <a href="{{ url_for('assigned_items') }}">Assigned Items</a>
+                        <a href="{{ url_for('unassigned_items') }}">Unassigned Items</a>
+                        <a href="{{ url_for('all_items') }}">All Items</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#manageEmployee" class="collapsible">Manage Employee</a>
+                    <div class="content">
+                        <a href="{{ url_for('employee_details') }}">Employee Details</a>
+                        <a href="{{ url_for('add_employee') }}">Add Employee</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ url_for('update_password') }}">Change Password</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="dashboard-container">
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-front">
+                        <h1>Analytics</h1>
+                        <p> Know the summary of the Employees and Inventory</p>
+                    </div>
+                    <div class="card-back">
+                        <h2>Analytics</h2>
+                        <p>Total Employees: {{count}}</p>
+                        <p>Total Items: {{total}}</p>
+                        <p>Assigned Items: {{assigned}}</p>
+                        <p>Unassigned Items: {{unassigned}}</p>
+                        <p>Employees with Assigned Items: {{employee_assigned}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.collapsible').on('click', function() {
+                $(this).next('.content').toggle();
+            });
+        });
+    </script>
+</body>
+</html>

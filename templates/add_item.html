@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesadditem.css') }}">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let today = new Date().toISOString().split('T')[0];
+            document.getElementById('purchasedate').setAttribute('max', today);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Item</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flash-message-list">
+            {% for message in messages %}
+            <li class="flash-message">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+        <form action="{{ url_for('add_item') }}" method="POST">
+
+            <label for="itemname">Item Name:</label>
+            <input type="text" id="itemname" name="itemname" required>
+
+            <label for="serialno">Serial Number</label>
+            <input type="number" id="serialno" name="serialno" min="100" required>
+
+            <label for="billno">Bill Number:</label>
+            <input type="text" id="billno" name="billno" required>
+
+            <label for="purchasedate">Purchase Date:</label>
+            <input type="date" id="purchasedate" name="purchasedate" required>
+
+            <label for="warranty">Waranty in years:</label>
+            <input type="number" id="warranty" name="warranty" min=0 required>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" min="0" required>
+
+            <label for="categoryname">Category Name:</label>
+            <input type="text" id="categoryname" name="categoryname" required>
+
+
+            <button type="submit">Add Item</button>
+            <a class="cancel-btn" href="{{ url_for('admin_dashboard') }}">Cancel</a>
+
+        </form>
+    </div>
+</body>
+</html>

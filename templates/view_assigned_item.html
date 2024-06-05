@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesaddemp.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Item Details</h1>
+        <p><strong>Item ID:</strong> {{ item.Itemid }}</p>
+        <p><strong>Item Name:</strong> {{ item.Itemname }}</p>
+        <p><strong>Serial Number:</strong> {{ item.Serialno }}</p>
+        <p><strong>Assigned To:</strong> {{ item.name}}</p>
+        <p><strong>Assigned Employee Id:</strong> {{ item.Empid}}</p>
+        <p><strong>Bill Number:</strong> {{ item.Billno}}</p>
+        <p><strong>Purchase Date:</strong> {{ item.Purchasedate}}</p>
+        <p><strong>Warranty:</strong> {{ item.Warranty}}</p>
+        <p><strong>Price:</strong> {{ item.Price}}</p>
+        <p><strong>Category Name:</strong> {{ item.Categoryname}}</p>
+        <a href="{{ url_for('assigned_items') }}" class="close-button">Close</a>
+    </div>
+</body>
+</html>

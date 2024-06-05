@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unassigned Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesitemdetails.css') }}">
+    <script>
+    </script>
+</head>
+<body>
+    <header>
+        <div><h2>{{name}}</h2></div>
+        <nav class="nav-links">
+            <a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Unassigned Items</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Serial Number</th>
+                    <th>Action</th>
+                    <th>Assign</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.Itemid}}</td>
+                    <td>{{item.Itemname}}</td>
+                    <td>{{item.Serialno}}</td>
+                    <td><a class="cancel-btn" href="{{ url_for('view_unassigned_item', item_id=item.Itemid) }}">View Item</a></td>
+                    <td><a class="cancel-btn" href="{{ url_for('employee_assign', item_id=item.Itemid) }}">Assign</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
